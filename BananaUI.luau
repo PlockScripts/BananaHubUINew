@@ -1,5 +1,4 @@
 -- Source shared by araujozwx 
--- Modificado para tema Banana Cat (amarelo sobre fundo escuro)
 
 if getgenv().Nousigi then 
 	if game.CoreGui:FindFirstChild("Night Mystic GUI") then
@@ -15,41 +14,41 @@ getgenv().Nousigi = true
 local DisableAnimation = game.Players.LocalPlayer.PlayerGui:FindFirstChild('TouchGui')
 
 local T1UIColor = {
-    ["Border Color"] = Color3.fromRGB(80, 60, 20),        -- bordas mais escuras
-    ["Click Effect Color"] = Color3.fromRGB(255, 200, 50), -- amarelo
-    ["Setting Icon Color"] = Color3.fromRGB(240, 240, 200),
-    ["Logo Image"] = "rbxassetid://5009915795",           -- ÍCONE DO BANANA CAT HUB
-    ["Search Icon Color"] = Color3.fromRGB(255, 200, 50),
-    ["Search Icon Highlight Color"] = Color3.fromRGB(255, 220, 100),
-    ["GUI Text Color"] = Color3.fromRGB(255, 255, 200),   -- texto levemente amarelado
-    ["Text Color"] = Color3.fromRGB(250, 250, 220),
-    ["Placeholder Text Color"] = Color3.fromRGB(150, 150, 120),
-    ["Title Text Color"] = Color3.fromRGB(255, 255, 150),
+    ["Border Color"] = Color3.fromRGB(50, 50, 50),
+    ["Click Effect Color"] = Color3.fromRGB(200, 40, 40),
+    ["Setting Icon Color"] = Color3.fromRGB(200, 200, 200),
+    ["Logo Image"] = "rbxassetid://105245380363493",
+    ["Search Icon Color"] = Color3.fromRGB(200, 40, 40),
+    ["Search Icon Highlight Color"] = Color3.fromRGB(255, 60, 60),
+    ["GUI Text Color"] = Color3.fromRGB(240, 240, 240),
+    ["Text Color"] = Color3.fromRGB(240, 240, 240),
+    ["Placeholder Text Color"] = Color3.fromRGB(100, 100, 100),
+    ["Title Text Color"] = Color3.fromRGB(255, 255, 255),
     
-    ["Background Main Color"] = Color3.fromRGB(25, 20, 10),  -- fundo escuro com tom quente
-    ["Background 1 Color"] = Color3.fromRGB(35, 30, 20),
+    ["Background Main Color"] = Color3.fromRGB(15, 15, 15), 
+    ["Background 1 Color"] = Color3.fromRGB(22, 22, 22),
     ["Background 1 Transparency"] = 0.05,
-    ["Background 2 Color"] = Color3.fromRGB(45, 40, 30),
-    ["Background 3 Color"] = Color3.fromRGB(40, 35, 25),
+    ["Background 2 Color"] = Color3.fromRGB(30, 30, 30),
+    ["Background 3 Color"] = Color3.fromRGB(25, 25, 25),
     ["Background Image"] = "",
     
-    ["Page Selected Color"] = Color3.fromRGB(255, 200, 50),  -- amarelo para abas selecionadas
-    ["Section Text Color"] = Color3.fromRGB(255, 255, 200),
-    ["Section Underline Color"] = Color3.fromRGB(255, 200, 50),
-    ["Toggle Border Color"] = Color3.fromRGB(100, 80, 40),
-    ["Toggle Checked Color"] = Color3.fromRGB(255, 220, 100), -- amarelo mais claro (como pedido)
-    ["Toggle Desc Color"] = Color3.fromRGB(200, 200, 180),
+    ["Page Selected Color"] = Color3.fromRGB(200, 40, 40),
+    ["Section Text Color"] = Color3.fromRGB(255, 200, 0),
+    ["Section Underline Color"] = Color3.fromRGB(255, 200, 0),
+    ["Toggle Border Color"] = Color3.fromRGB(70, 70, 70),
+    ["Toggle Checked Color"] = Color3.fromRGB(200, 40, 40),
+    ["Toggle Desc Color"] = Color3.fromRGB(180, 180, 180),
     
-    ["Button Color"] = Color3.fromRGB(80, 70, 40),          -- botões com tom amarelado
-    ["Label Color"] = Color3.fromRGB(45, 35, 25),
-    ["Dropdown Icon Color"] = Color3.fromRGB(255, 200, 50),
-    ["Dropdown Selected Color"] = Color3.fromRGB(255, 200, 50),
+    ["Button Color"] = Color3.fromRGB(255, 200, 0),
+    ["Label Color"] = Color3.fromRGB(255, 200, 0),
+    ["Dropdown Icon Color"] = Color3.fromRGB(200, 40, 40),
+    ["Dropdown Selected Color"] = Color3.fromRGB(200, 40, 40),
     ["Dropdown Selected Check Color"] = Color3.fromRGB(255, 255, 255),
     
-    ["Textbox Highlight Color"] = Color3.fromRGB(255, 200, 50),
-    ["Box Highlight Color"] = Color3.fromRGB(255, 200, 50),
-    ["Slider Line Color"] = Color3.fromRGB(70, 60, 40),
-    ["Slider Highlight Color"] = Color3.fromRGB(255, 200, 50),
+    ["Textbox Highlight Color"] = Color3.fromRGB(200, 40, 40),
+    ["Box Highlight Color"] = Color3.fromRGB(200, 40, 40),
+    ["Slider Line Color"] = Color3.fromRGB(45, 45, 45),
+    ["Slider Highlight Color"] = Color3.fromRGB(200, 40, 40),
     
     ["Tween Animation 1 Speed"] = DisableAnimation and 0 or 0.25,
     ["Tween Animation 2 Speed"] = DisableAnimation and 0 or 0.5,
@@ -57,9 +56,12 @@ local T1UIColor = {
     ["Text Stroke Transparency"] = .8 
 }
 
+
+
 getgenv().UIColor = T1UIColor
 getgenv().AllControls = {}
 getgenv().UIToggled = false
+
 
 local currcolor = {}
 local Library = {};
@@ -119,6 +121,7 @@ spawn(function()
 	end
 end)
 
+
 Library_Function.NotiGui = Instance.new('ScreenGui')
 Library_Function.NotiGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 Library_Function.NotiGui.Name = 'Night Mystic Notification'
@@ -126,6 +129,7 @@ Library_Function.NotiGui.Name = 'Night Mystic Notification'
 Library_Function.HideGui = Instance.new('ScreenGui')
 Library_Function.HideGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 Library_Function.HideGui.Name = 'Night Mystic'
+
 
 local Players = game:GetService("Players")
 local player = Players.LocalPlayer
@@ -166,7 +170,7 @@ ImageLabel.Size = UDim2.new(0, 40, 0, 40)
 ImageLabel.BackgroundTransparency = 1
 ImageLabel.BorderSizePixel = 0
 ImageLabel.ImageColor3 = Color3.fromRGB(255, 255, 255)
-ImageLabel.Image = "rbxassetid://5009915795"
+ImageLabel.Image = "rbxassetid://105245380363493"
 
 local isToggled = getgenv().UIToggled or false
 local isHovering = false
@@ -391,6 +395,7 @@ NotiList.Parent = NotiContainer
 NotiList.SortOrder = Enum.SortOrder.LayoutOrder
 NotiList.VerticalAlignment = Enum.VerticalAlignment.Bottom
 NotiList.Padding = UDim.new(0, 5)
+
 
 Library_Function.Gui.Parent = game:GetService('CoreGui')
 Library_Function.NotiGui.Parent = game:GetService('CoreGui')
