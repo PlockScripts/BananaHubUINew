@@ -17,7 +17,7 @@ local T1UIColor = {
     ["Border Color"] = Color3.fromRGB(50, 50, 50),
     ["Click Effect Color"] = Color3.fromRGB(200, 40, 40),
     ["Setting Icon Color"] = Color3.fromRGB(200, 200, 200),
-    ["Logo Image"] = "rbxassetid://105245380363493",
+    ["Logo Image"] = "rbxassetid://5009915795",
     ["Search Icon Color"] = Color3.fromRGB(200, 40, 40),
     ["Search Icon Highlight Color"] = Color3.fromRGB(255, 60, 60),
     ["GUI Text Color"] = Color3.fromRGB(240, 240, 240),
@@ -32,7 +32,7 @@ local T1UIColor = {
     ["Background 3 Color"] = Color3.fromRGB(25, 25, 25),
     ["Background Image"] = "",
     
-    ["Page Selected Color"] = Color3.fromRGB(200, 40, 40),
+    ["Page Selected Color"] = Color3.fromRGB(255, 200, 0),
     ["Section Text Color"] = Color3.fromRGB(255, 200, 0),
     ["Section Underline Color"] = Color3.fromRGB(255, 200, 0),
     ["Toggle Border Color"] = Color3.fromRGB(70, 70, 70),
@@ -43,7 +43,7 @@ local T1UIColor = {
     ["Label Color"] = Color3.fromRGB(255, 200, 0),
     ["Dropdown Icon Color"] = Color3.fromRGB(200, 40, 40),
     ["Dropdown Selected Color"] = Color3.fromRGB(200, 40, 40),
-    ["Dropdown Selected Check Color"] = Color3.fromRGB(255, 255, 255),
+    ["Dropdown Selected Check Color"] = Color3.fromRGB(255, 200, 0),
     
     ["Textbox Highlight Color"] = Color3.fromRGB(200, 40, 40),
     ["Box Highlight Color"] = Color3.fromRGB(200, 40, 40),
