@@ -1,5 +1,4 @@
 -- Source shared by araujozwx 
--- Source Modificada por plock4444
 
 if getgenv().Nousigi then 
 	if game.CoreGui:FindFirstChild("Night Mystic GUI") then
@@ -1634,7 +1633,7 @@ end)
 				
 				Button.Name = "Button"
 				Button.Parent = Section
-				Button.BackgroundColor3 = Color3.fromRGB(255, 200, 0),
+				Button.BackgroundColor3 = Color3.fromRGB(255, 200, 0)
 				Button.BackgroundTransparency = 1
 				
 				if Desc and Desc ~= "" then
