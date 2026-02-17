@@ -1,4 +1,5 @@
 -- Source shared by araujozwx 
+-- Source Modificada por plock4444
 
 if getgenv().Nousigi then 
 	if game.CoreGui:FindFirstChild("Night Mystic GUI") then
@@ -23,7 +24,7 @@ local T1UIColor = {
     ["GUI Text Color"] = Color3.fromRGB(240, 240, 240),
     ["Text Color"] = Color3.fromRGB(240, 240, 240),
     ["Placeholder Text Color"] = Color3.fromRGB(100, 100, 100),
-    ["Title Text Color"] = Color3.fromRGB(255, 255, 255),
+    ["Title Text Color"] = Color3.fromRGB(255, 200, 0),
     
     ["Background Main Color"] = Color3.fromRGB(15, 15, 15), 
     ["Background 1 Color"] = Color3.fromRGB(22, 22, 22),
@@ -1633,7 +1634,7 @@ end)
 				
 				Button.Name = "Button"
 				Button.Parent = Section
-				Button.BackgroundColor3 = Color3.fromRGB(163,162,165)
+				Button.BackgroundColor3 = Color3.fromRGB(255, 200, 0),
 				Button.BackgroundTransparency = 1
 				
 				if Desc and Desc ~= "" then
