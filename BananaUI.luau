@@ -166,12 +166,15 @@ local ImageLabel = Instance.new("ImageLabel")
 ImageLabel.Parent = mainButton
 ImageLabel.AnchorPoint = Vector2.new(0.5, 0.5)
 ImageLabel.Position = UDim2.new(0.5, 0, 0.5, 0)
-ImageLabel.Size = UDim2.new(0, 40, 0, 40)
+ImageLabel.Size = UDim2.new(0, 60, 0, 60)
 ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-ImageLabel.BackgroundTransparency = 0.3
+ImageLabel.BackgroundTransparency = 0.2
 ImageLabel.BorderSizePixel = 0
 ImageLabel.ImageColor3 = Color3.fromRGB(255, 255, 255)
 ImageLabel.Image = "rbxassetid://5009915795"
+local Corner = Instance.new("UICorner")
+Corner.CornerRadius = UDim.new(1, 0)
+Corner.Parent = ImageLabel
 
 local isToggled = getgenv().UIToggled or false
 local isHovering = false
@@ -705,7 +708,7 @@ function Library:CreateWindow(Setting)
 	TextLabelMain.TextWrapped = true
 	TextLabelMain.TextXAlignment = Enum.TextXAlignment.Left
 	TextLabelMain.TextColor3 = getgenv().UIColor["GUI Text Color"]
-   TextLabelMain.Text = "<font color=\"rgb(0,0,0)\">" .. tostring(TitleNameMain or "Night Mystic") .. "</font> <font color=\"rgb(255,255,255)\">" .. tostring(getgenv().MainDesc or "") .. "</font>"
+   TextLabelMain.Text = "<font color=\"rgb(255, 255, 0)\">" .. tostring(TitleNameMain or "Night Mystic") .. "</font> <font color=\"rgb(255,255,255)\">" .. tostring(getgenv().MainDesc or "") .. "</font>"
 	PageControl.Name = "Background1"
 	PageControl.Parent = Concacmain
 	PageControl.Position = UDim2.new(0, 5, 0, 0)
