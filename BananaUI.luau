@@ -166,7 +166,7 @@ local ImageLabel = Instance.new("ImageLabel")
 ImageLabel.Parent = mainButton
 ImageLabel.AnchorPoint = Vector2.new(0.5, 0.5)
 ImageLabel.Position = UDim2.new(0.5, 0, 0.5, 0)
-ImageLabel.Size = UDim2.new(0, 90, 0, 90)
+ImageLabel.Size = UDim2.new(0, 150, 0, 150)
 ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 ImageLabel.BackgroundTransparency = 0.2
 ImageLabel.BorderSizePixel = 0
@@ -306,7 +306,7 @@ mainButton.MouseButton1Click:Connect(function()
     })
     
     local iconScaleTween = TweenService:Create(ImageLabel, clickTweenInfo, {
-        Size = isToggled and UDim2.new(0, 27, 0, 27) or UDim2.new(0, 40, 0, 40)
+        Size = isToggled and UDim2.new(0, 47, 0, 47) or UDim2.new(0, 40, 0, 40)
     })
     
     local targetColor = isToggled and Color3.fromRGB(15, 15, 15) or Color3.fromRGB(45, 45, 45)
@@ -351,7 +351,7 @@ Library.ToggleUI = function()
     isToggled = getgenv().UIToggled
     
     local iconScaleTween = TweenService:Create(ImageLabel, defaultTweenInfo, {
-        Size = isToggled and UDim2.new(0, 27, 0, 27) or UDim2.new(0, 40, 0, 40)
+        Size = isToggled and UDim2.new(0, 47, 0, 47) or UDim2.new(0, 40, 0, 40)
     })
     
     local targetColor = isToggled and Color3.fromRGB(15, 15, 15) or Color3.fromRGB(45, 45, 45)
@@ -1711,7 +1711,7 @@ end)
 				ClickArea_1.Name = "ClickArea"
 				ClickArea_1.Parent = RowBG_1
 				ClickArea_1.AnchorPoint = Vector2.new(1, 0.5)
-				ClickArea_1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+				ClickArea_1.BackgroundColor3 = Color3.fromRGB(255, 255, 0)
 				ClickArea_1.Position = UDim2.new(1, -8, 0.5, 0)
 				ClickArea_1.Size = UDim2.new(0, 94, 0, 30)
 				ClickArea_1.ClipsDescendants = true
