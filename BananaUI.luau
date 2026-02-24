@@ -1,9 +1,9 @@
 -- Source shared by araujozwx 
 
 if getgenv().Nousigi then 
-	if game.CoreGui:FindFirstChild("Night Mystic GUI") then
+	if game.CoreGui:FindFirstChild("Banana Hub GUI") then
 		for i, v in ipairs(game.CoreGui:GetChildren()) do
-			if string.find(v.Name,  "Night Mystic") then
+			if string.find(v.Name,  "Banana Hub") then
 				v:Destroy()
 			end
 		end
@@ -108,7 +108,7 @@ end
 
 Library_Function.Gui = Instance.new('ScreenGui')
 Library_Function.Gui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-Library_Function.Gui.Name = 'Night Mystic GUI'
+Library_Function.Gui.Name = 'Banana Hub GUI'
 Library_Function.Gui.Enabled = false
 
 getgenv().ReadyForGuiLoaded = false
@@ -124,11 +124,11 @@ end)
 
 Library_Function.NotiGui = Instance.new('ScreenGui')
 Library_Function.NotiGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-Library_Function.NotiGui.Name = 'Night Mystic Notification'
+Library_Function.NotiGui.Name = 'Banana Hub Notification'
 
 Library_Function.HideGui = Instance.new('ScreenGui')
 Library_Function.HideGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-Library_Function.HideGui.Name = 'Night Mystic'
+Library_Function.HideGui.Name = 'Banana Hub'
 
 
 local Players = game:GetService("Players")
@@ -340,9 +340,9 @@ end)
 Library.ToggleUI = function()
     getgenv().UIToggled = not getgenv().UIToggled
     
-    if game.CoreGui:FindFirstChild("Night Mystic GUI") then
+    if game.CoreGui:FindFirstChild("Banana Hub GUI") then
         for a, b in ipairs(game.CoreGui:GetChildren()) do
-            if b.Name == "Night Mystic GUI" then
+            if b.Name == "Banana Hub GUI" then
                 b.Enabled = getgenv().UIToggled
             end
         end
@@ -364,9 +364,9 @@ Library.ToggleUI = function()
 end
 
 Library.DestroyUI = function()
-    if game.CoreGui:FindFirstChild("Night Mystic GUI") then
+    if game.CoreGui:FindFirstChild("Banana Hub GUI") then
         for i, v in ipairs(game.CoreGui:GetChildren()) do
-            if string.find(v.Name, "Night Mystic") then
+            if string.find(v.Name, "Banana Hub") then
                 v:Destroy()
             end
         end
@@ -471,7 +471,7 @@ local libCreateNoti = function(Setting)
 	local colorG = tostring(Library_Function.Getcolor(getgenv().UIColor['Title Text Color'])[2])
 	local colorB = tostring(Library_Function.Getcolor(getgenv().UIColor['Title Text Color'])[3])
 	local color = colorR .. ',' .. colorG .. ',' .. colorB
-    TextLabelNoti.Text = "<font color=\"rgb(" .. tostring(color or "255,80,80") .. ")\">" .. tostring(TitleNameMain or "Night Mystic") .. "</font> " .. tostring(getgenv().TitleNameNoti or "")
+    TextLabelNoti.Text = "<font color=\"rgb(" .. tostring(color or "255,80,80") .. ")\">" .. tostring(TitleNameMain or "Banana Hub") .. "</font> " .. tostring(getgenv().TitleNameNoti or "")
     
 	TextLabelNoti.Name = "TextLabelNoti"
 	TextLabelNoti.Parent = Topnoti
@@ -578,7 +578,7 @@ function Library:Notify(Setting, bypass)
 end
 
 function Library:CreateWindow(Setting)
-    local TitleNameMain = Setting.Title or "Night Mystic"
+    local TitleNameMain = Setting.Title or "Banana Hub"
     getgenv().MainDesc = Setting.Desc or Setting.Subtitle or ""
     
     if Setting.Image then
@@ -708,7 +708,7 @@ function Library:CreateWindow(Setting)
 	TextLabelMain.TextWrapped = true
 	TextLabelMain.TextXAlignment = Enum.TextXAlignment.Left
 	TextLabelMain.TextColor3 = getgenv().UIColor["GUI Text Color"]
-   TextLabelMain.Text = "<font color=\"rgb(255, 255, 0)\">" .. tostring(TitleNameMain or "Night Mystic") .. "</font> <font color=\"rgb(255,255,255)\">" .. tostring(getgenv().MainDesc or "") .. "</font>"
+   TextLabelMain.Text = "<font color=\"rgb(200, 180, 70)\">" .. tostring(TitleNameMain or "Banana Hub") .. "</font> <font color=\"rgb(255,255,255)\">" .. tostring(getgenv().MainDesc or "") .. "</font>"
 	PageControl.Name = "Background1"
 	PageControl.Parent = Concacmain
 	PageControl.Position = UDim2.new(0, 5, 0, 0)
@@ -1711,7 +1711,7 @@ end)
 				ClickArea_1.Name = "ClickArea"
 				ClickArea_1.Parent = RowBG_1
 				ClickArea_1.AnchorPoint = Vector2.new(1, 0.5)
-				ClickArea_1.BackgroundColor3 = Color3.fromRGB(255, 255, 0)
+				ClickArea_1.BackgroundColor3 = Color3.fromRGB(200, 180, 70)
 				ClickArea_1.Position = UDim2.new(1, -8, 0.5, 0)
 				ClickArea_1.Size = UDim2.new(0, 94, 0, 30)
 				ClickArea_1.ClipsDescendants = true
