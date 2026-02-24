@@ -23,7 +23,7 @@ local T1UIColor = {
     ["GUI Text Color"] = Color3.fromRGB(240, 240, 240),
     ["Text Color"] = Color3.fromRGB(240, 240, 240),
     ["Placeholder Text Color"] = Color3.fromRGB(100, 100, 100),
-    ["Title Text Color"] = Color3.fromRGB(255, 200, 0),
+    ["Title Text Color"] = Color3.fromRGB(255, 255, 0),
     
     ["Background Main Color"] = Color3.fromRGB(15, 15, 15), 
     ["Background 1 Color"] = Color3.fromRGB(22, 22, 22),
@@ -42,8 +42,8 @@ local T1UIColor = {
     ["Button Color"] = Color3.fromRGB(255, 200, 0),
     ["Label Color"] = Color3.fromRGB(255, 200, 0),
     ["Dropdown Icon Color"] = Color3.fromRGB(200, 40, 40),
-    ["Dropdown Selected Color"] = Color3.fromRGB(200, 40, 40),
-    ["Dropdown Selected Check Color"] = Color3.fromRGB(255, 200, 0),
+    ["Dropdown Selected Color"] = Color3.fromRGB(255, 255, 0),
+    ["Dropdown Selected Check Color"] = Color3.fromRGB(255, 255, 0),
     
     ["Textbox Highlight Color"] = Color3.fromRGB(200, 40, 40),
     ["Box Highlight Color"] = Color3.fromRGB(200, 40, 40),
@@ -158,7 +158,7 @@ UICorner.Parent = mainButton
 
 local UIStroke = Instance.new("UIStroke")
 UIStroke.Parent = mainButton
-UIStroke.Color = Color3.fromRGB(255, 255, 255)
+UIStroke.Color = Color3.fromRGB(255, 255, 0)
 UIStroke.Thickness = 1.5
 UIStroke.Transparency = 0.7
 
@@ -167,10 +167,11 @@ ImageLabel.Parent = mainButton
 ImageLabel.AnchorPoint = Vector2.new(0.5, 0.5)
 ImageLabel.Position = UDim2.new(0.5, 0, 0.5, 0)
 ImageLabel.Size = UDim2.new(0, 40, 0, 40)
-ImageLabel.BackgroundTransparency = 1
+ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ImageLabel.BackgroundTransparency = 0.3
 ImageLabel.BorderSizePixel = 0
 ImageLabel.ImageColor3 = Color3.fromRGB(255, 255, 255)
-ImageLabel.Image = "rbxassetid://105245380363493"
+ImageLabel.Image = "rbxassetid://5009915795"
 
 local isToggled = getgenv().UIToggled or false
 local isHovering = false
