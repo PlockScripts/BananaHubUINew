@@ -132,7 +132,13 @@ Library_Function.HideGui.Name = 'Banana Hub'
 
 
 local Players = game:GetService("Players")
+local TweenService = game:GetService("TweenService")
+local UIS = game:GetService("UserInputService")
 local player = Players.LocalPlayer
+
+if game.CoreGui:FindFirstChild("NazuXWindowsToggleUltimate") then
+    game.CoreGui.NazuXWindowsToggleUltimate:Destroy()
+end
 
 local ToggleScreenGui = Instance.new("ScreenGui")
 ToggleScreenGui.Parent = game:GetService("CoreGui")
@@ -143,14 +149,14 @@ local mainButton = Instance.new("ImageButton")
 mainButton.Name = "ToggleButton"
 mainButton.Parent = ToggleScreenGui
 mainButton.Size = UDim2.new(0, 50, 0, 50)
-mainButton.Position = UDim2.new(0, 15, 1, -75) 
-mainButton.Draggable = true
+mainButton.Position = UDim2.new(0, 15, 1, -75)
 mainButton.AnchorPoint = Vector2.new(0, 1)
-mainButton.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+mainButton.BackgroundColor3 = Color3.fromRGB(45,45,45)
 mainButton.BackgroundTransparency = 0.2
 mainButton.BorderSizePixel = 0
 mainButton.AutoButtonColor = false
 mainButton.Image = ""
+mainButton.Active = true
 
 local UICorner = Instance.new("UICorner")
 UICorner.CornerRadius = UDim.new(1, 0)
@@ -158,47 +164,32 @@ UICorner.Parent = mainButton
 
 local UIStroke = Instance.new("UIStroke")
 UIStroke.Parent = mainButton
-UIStroke.Color = Color3.fromRGB(255, 255, 0)
+UIStroke.Color = Color3.fromRGB(255, 200, 80)
 UIStroke.Thickness = 1.5
-UIStroke.Transparency = 0.3
+UIStroke.Transparency = 0.4
 
 local ImageLabel = Instance.new("ImageLabel")
 ImageLabel.Parent = mainButton
-ImageLabel.AnchorPoint = Vector2.new(0.5, 0.5)
-ImageLabel.Position = UDim2.new(0.5, 0, 0.5, 0)
-ImageLabel.Size = UDim2.new(0, 50, 0, 50)
-ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ImageLabel.AnchorPoint = Vector2.new(0.5,0.5)
+ImageLabel.Position = UDim2.new(0.5,0,0.5,0)
+ImageLabel.Size = UDim2.new(0,45,0,45)
+ImageLabel.BackgroundColor3 = Color3.fromRGB(255,255,255)
 ImageLabel.BackgroundTransparency = 0.2
 ImageLabel.BorderSizePixel = 0
-ImageLabel.ImageColor3 = Color3.fromRGB(255, 255, 255)
+ImageLabel.ImageColor3 = Color3.fromRGB(255,255,255)
 ImageLabel.Image = "rbxassetid://5009915795"
+
 local Corner = Instance.new("UICorner")
-Corner.CornerRadius = UDim.new(1, 0)
+Corner.CornerRadius = UDim.new(1,0)
 Corner.Parent = ImageLabel
 
-local isToggled = getgenv().UIToggled or false
-local isHovering = false
-local zoomedIn = false
-local faded = false
+local isToggled = false
+local dragging = false
+local dragInput
+local dragStart
+local startPos
 
-if isToggled then
-    mainButton.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
-    ImageLabel.Size = UDim2.new(0, 50, 0, 50)
-else
-    mainButton.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
-    ImageLabel.Size = UDim2.new(0, 50, 0, 50)
-end
-
-local tweenInfo = TweenInfo.new(0.25, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
-local hoverTweenInfo = TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
-local defaultTweenInfo = TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
-local fluentTweenInfo = TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
-local clickTweenInfo = TweenInfo.new(0.15, Enum.EasingStyle.Back, Enum.EasingDirection.Out)
-
-local fadeInTween = TweenService:Create(mainButton, tweenInfo, {BackgroundTransparency = 0.25})
-local fadeOutTween = TweenService:Create(mainButton, tweenInfo, {BackgroundTransparency = 0.2})
-
-local dragging, dragInput, dragStart, startPos
+local tweenInfo = TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
 
 local function update(input)
     local delta = input.Position - dragStart
@@ -215,12 +206,7 @@ mainButton.InputBegan:Connect(function(input)
         dragging = true
         dragStart = input.Position
         startPos = mainButton.Position
-        
-        TweenService:Create(mainButton, fluentTweenInfo, {
-            Size = UDim2.new(0, 50, 0, 50),
-            BackgroundTransparency = 0.3
-        }):Play()
-        
+
         input.Changed:Connect(function()
             if input.UserInputState == Enum.UserInputState.End then
                 dragging = false
@@ -235,106 +221,43 @@ mainButton.InputChanged:Connect(function(input)
     end
 end)
 
-mainButton.InputEnded:Connect(function(input)
-    if input.UserInputType == Enum.UserInputType.MouseButton1 then
-        TweenService:Create(mainButton, fluentTweenInfo, {
-            Size = UDim2.new(0, 50, 0, 50),
-            BackgroundTransparency = 0.3
-        }):Play()
-    end
-end)
-
-uis.InputChanged:Connect(function(input)
+UIS.InputChanged:Connect(function(input)
     if dragging and input == dragInput then
         update(input)
     end
 end)
 
 mainButton.MouseEnter:Connect(function()
-    isHovering = true
-    
-    TweenService:Create(mainButton, fluentTweenInfo, {
-        Size = UDim2.new(0, 50, 0, 50),
+    TweenService:Create(mainButton, tweenInfo, {
         BackgroundTransparency = 0.1
-    }):Play()
-    
-    TweenService:Create(UIStroke, fluentTweenInfo, {
-        Transparency = 0.4
-    }):Play()
-    
-    TweenService:Create(mainButton, hoverTweenInfo, {
-        BackgroundColor3 = Color3.fromRGB(20, 20, 20)
     }):Play()
 end)
 
 mainButton.MouseLeave:Connect(function()
-    isHovering = false
-    local targetColor = isToggled and Color3.fromRGB(15, 15, 15) or Color3.fromRGB(45, 45, 45)
-    
-    TweenService:Create(mainButton, fluentTweenInfo, {
-        Size = UDim2.new(0, 50, 0, 50),
+    TweenService:Create(mainButton, tweenInfo, {
         BackgroundTransparency = 0.2
-    }):Play()
-    
-    TweenService:Create(UIStroke, fluentTweenInfo, {
-        Transparency = 0.7
-    }):Play()
-    
-    TweenService:Create(mainButton, defaultTweenInfo, {
-        BackgroundColor3 = targetColor
-    }):Play()
-end)
-
-mainButton.MouseButton1Down:Connect(function()
-    TweenService:Create(mainButton, hoverTweenInfo, {
-        Size = UDim2.new(0, 53, 0, 53),
-        BackgroundColor3 = Color3.fromRGB(10, 10, 10)
     }):Play()
 end)
 
 mainButton.MouseButton1Click:Connect(function()
-    Library.ToggleUI()
-    
-    isToggled = getgenv().UIToggled
-    
-    local scaleTween = TweenService:Create(mainButton, clickTweenInfo, {
-        Size = UDim2.new(0, 55, 0, 55)
-    })
-    
-    local scaleBackTween = TweenService:Create(mainButton, clickTweenInfo, {
-        Size = UDim2.new(0, 60, 0, 60)
-    })
-    
-    local iconScaleTween = TweenService:Create(ImageLabel, clickTweenInfo, {
-        Size = isToggled and UDim2.new(0, 47, 0, 47) or UDim2.new(0, 40, 0, 40)
-    })
-    
-    local targetColor = isToggled and Color3.fromRGB(15, 15, 15) or Color3.fromRGB(45, 45, 45)
-    local colorTween = TweenService:Create(mainButton, defaultTweenInfo, {
-        BackgroundColor3 = targetColor
-    })
-    
-    if faded then
-        fadeOutTween:Play()
-    else
-        fadeInTween:Play()
-    end
-    faded = not faded
-    
-    scaleTween:Play()
-    iconScaleTween:Play()
-    colorTween:Play()
-    
-    spawn(function()
-        wait(0.15)
-        scaleBackTween:Play()
-    end)
-    
-    if isToggled then
-        print("Toggle ON - Ultimate Toggle Activated")
-    else
-        print("Toggle OFF - Ultimate Toggle Deactivated")
-    end
+    isToggled = not isToggled
+
+    TweenService:Create(mainButton, tweenInfo, {
+        Size = UDim2.new(0,55,0,55),
+        BackgroundColor3 = isToggled and Color3.fromRGB(15,15,15) or Color3.fromRGB(45,45,45)
+    }):Play()
+
+    TweenService:Create(ImageLabel, tweenInfo, {
+        Size = isToggled and UDim2.new(0,40,0,40) or UDim2.new(0,45,0,45)
+    }):Play()
+
+    task.wait(0.15)
+
+    TweenService:Create(mainButton, tweenInfo, {
+        Size = UDim2.new(0,50,0,50)
+    }):Play()
+
+    print(isToggled and "Toggle ON" or "Toggle OFF")
 end)
 
 Library.ToggleUI = function()
