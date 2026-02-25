@@ -148,7 +148,7 @@ mainButton.Size = UDim2.new(0,50,0,50)
 mainButton.Position = UDim2.new(0,15,1,-75)
 mainButton.AnchorPoint = Vector2.new(0,1)
 mainButton.BackgroundColor3 = Color3.fromRGB(255,255,255)
-mainButton.BackgroundTransparency = 0
+mainButton.BackgroundTransparency = 0.3
 mainButton.BorderSizePixel = 0
 mainButton.AutoButtonColor = false
 mainButton.Image = ""
@@ -168,7 +168,6 @@ icon.BorderSizePixel = 0
 icon.Image = "rbxassetid://5009915795"
 icon.ImageColor3 = Color3.fromRGB(255,255,255)
 
-local isToggled = false
 local dragging = false
 local dragInput
 local dragStart
@@ -213,17 +212,10 @@ UIS.InputChanged:Connect(function(input)
 end)
 
 mainButton.MouseButton1Click:Connect(function()
-    isToggled = not isToggled
     if Library and Library.ToggleUI then
         Library.ToggleUI()
     end
-end)
-
-mainButton.MouseButton1Click:Connect(function()
-    isToggled = not isToggled
-    if Library and Library.ToggleUI then
-        Library.ToggleUI()
-    end
+    getgenv().UIToggled = not getgenv().UIToggled
 end)
 
 Library.ToggleUI = function()
