@@ -1,4 +1,4 @@
-
+-- Source shared by araujozwx 
 
 if getgenv().Nousigi then 
 	if game.CoreGui:FindFirstChild("Banana Hub GUI") then
@@ -147,11 +147,26 @@ mainButton.Parent = ToggleScreenGui
 mainButton.Size = UDim2.new(0,50,0,50)
 mainButton.Position = UDim2.new(0,15,1,-75)
 mainButton.AnchorPoint = Vector2.new(0,1)
-mainButton.BackgroundTransparency = 1
+mainButton.BackgroundColor3 = Color3.fromRGB(255,255,255)
+mainButton.BackgroundTransparency = 0
 mainButton.BorderSizePixel = 0
 mainButton.AutoButtonColor = false
-mainButton.Image = "rbxassetid://5009915795"
+mainButton.Image = ""
 mainButton.Active = true
+
+local UICorner = Instance.new("UICorner")
+UICorner.CornerRadius = UDim.new(1,0)
+UICorner.Parent = mainButton
+
+local icon = Instance.new("ImageLabel")
+icon.Parent = mainButton
+icon.AnchorPoint = Vector2.new(0.5,0.5)
+icon.Position = UDim2.new(0.5,0,0.5,0)
+icon.Size = UDim2.new(0,35,0,35)
+icon.BackgroundTransparency = 1
+icon.BorderSizePixel = 0
+icon.Image = "rbxassetid://5009915795"
+icon.ImageColor3 = Color3.fromRGB(255,255,255)
 
 local isToggled = false
 local dragging = false
@@ -194,6 +209,13 @@ end)
 UIS.InputChanged:Connect(function(input)
     if dragging and input == dragInput then
         update(input)
+    end
+end)
+
+mainButton.MouseButton1Click:Connect(function()
+    isToggled = not isToggled
+    if Library and Library.ToggleUI then
+        Library.ToggleUI()
     end
 end)
 
