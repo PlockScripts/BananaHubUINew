@@ -1,4 +1,4 @@
-
+-- Source shared by araujozwx 
 
 if getgenv().Nousigi then 
 	if game.CoreGui:FindFirstChild("Banana Hub GUI") then
@@ -142,7 +142,7 @@ ToggleScreenGui.Name = "NazuXWindowsToggleUltimate"
 local mainButton = Instance.new("ImageButton")
 mainButton.Name = "ToggleButton"
 mainButton.Parent = ToggleScreenGui
-mainButton.Size = UDim2.new(0, 89, 0, 89)
+mainButton.Size = UDim2.new(0, 50, 0, 50)
 mainButton.Position = UDim2.new(0, 15, 1, -75) 
 mainButton.Draggable = true
 mainButton.AnchorPoint = Vector2.new(0, 1)
@@ -166,7 +166,7 @@ local ImageLabel = Instance.new("ImageLabel")
 ImageLabel.Parent = mainButton
 ImageLabel.AnchorPoint = Vector2.new(0.5, 0.5)
 ImageLabel.Position = UDim2.new(0.5, 0, 0.5, 0)
-ImageLabel.Size = UDim2.new(0, 100, 0, 100)
+ImageLabel.Size = UDim2.new(0, 50, 0, 50)
 ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 ImageLabel.BackgroundTransparency = 0.2
 ImageLabel.BorderSizePixel = 0
@@ -183,10 +183,10 @@ local faded = false
 
 if isToggled then
     mainButton.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
-    ImageLabel.Size = UDim2.new(0, 90, 0, 90)
+    ImageLabel.Size = UDim2.new(0, 50, 0, 50)
 else
     mainButton.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
-    ImageLabel.Size = UDim2.new(0, 95, 0, 95)
+    ImageLabel.Size = UDim2.new(0, 50, 0, 50)
 end
 
 local tweenInfo = TweenInfo.new(0.25, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
@@ -217,8 +217,8 @@ mainButton.InputBegan:Connect(function(input)
         startPos = mainButton.Position
         
         TweenService:Create(mainButton, fluentTweenInfo, {
-            Size = UDim2.new(0, 66, 0, 66),
-            BackgroundTransparency = 0.05
+            Size = UDim2.new(0, 50, 0, 50),
+            BackgroundTransparency = 0.3
         }):Play()
         
         input.Changed:Connect(function()
@@ -238,8 +238,8 @@ end)
 mainButton.InputEnded:Connect(function(input)
     if input.UserInputType == Enum.UserInputType.MouseButton1 then
         TweenService:Create(mainButton, fluentTweenInfo, {
-            Size = UDim2.new(0, 60, 0, 60),
-            BackgroundTransparency = 0.2
+            Size = UDim2.new(0, 50, 0, 50),
+            BackgroundTransparency = 0.3
         }):Play()
     end
 end)
@@ -254,7 +254,7 @@ mainButton.MouseEnter:Connect(function()
     isHovering = true
     
     TweenService:Create(mainButton, fluentTweenInfo, {
-        Size = UDim2.new(0, 64, 0, 64),
+        Size = UDim2.new(0, 50, 0, 50),
         BackgroundTransparency = 0.1
     }):Play()
     
@@ -272,7 +272,7 @@ mainButton.MouseLeave:Connect(function()
     local targetColor = isToggled and Color3.fromRGB(15, 15, 15) or Color3.fromRGB(45, 45, 45)
     
     TweenService:Create(mainButton, fluentTweenInfo, {
-        Size = UDim2.new(0, 60, 0, 60),
+        Size = UDim2.new(0, 50, 0, 50),
         BackgroundTransparency = 0.2
     }):Play()
     
@@ -287,7 +287,7 @@ end)
 
 mainButton.MouseButton1Down:Connect(function()
     TweenService:Create(mainButton, hoverTweenInfo, {
-        Size = UDim2.new(0, 58, 0, 58),
+        Size = UDim2.new(0, 53, 0, 53),
         BackgroundColor3 = Color3.fromRGB(10, 10, 10)
     }):Play()
 end)
