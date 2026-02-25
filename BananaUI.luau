@@ -1,4 +1,4 @@
--- Source shared by araujozwx 
+
 
 if getgenv().Nousigi then 
 	if game.CoreGui:FindFirstChild("Banana Hub GUI") then
@@ -142,7 +142,7 @@ ToggleScreenGui.Name = "NazuXWindowsToggleUltimate"
 local mainButton = Instance.new("ImageButton")
 mainButton.Name = "ToggleButton"
 mainButton.Parent = ToggleScreenGui
-mainButton.Size = UDim2.new(0, 60, 0, 60)
+mainButton.Size = UDim2.new(0, 89, 0, 89)
 mainButton.Position = UDim2.new(0, 15, 1, -75) 
 mainButton.Draggable = true
 mainButton.AnchorPoint = Vector2.new(0, 1)
@@ -160,13 +160,13 @@ local UIStroke = Instance.new("UIStroke")
 UIStroke.Parent = mainButton
 UIStroke.Color = Color3.fromRGB(255, 255, 0)
 UIStroke.Thickness = 1.5
-UIStroke.Transparency = 0.7
+UIStroke.Transparency = 0.3
 
 local ImageLabel = Instance.new("ImageLabel")
 ImageLabel.Parent = mainButton
 ImageLabel.AnchorPoint = Vector2.new(0.5, 0.5)
 ImageLabel.Position = UDim2.new(0.5, 0, 0.5, 0)
-ImageLabel.Size = UDim2.new(0, 150, 0, 150)
+ImageLabel.Size = UDim2.new(0, 100, 0, 100)
 ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 ImageLabel.BackgroundTransparency = 0.2
 ImageLabel.BorderSizePixel = 0
@@ -183,10 +183,10 @@ local faded = false
 
 if isToggled then
     mainButton.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
-    ImageLabel.Size = UDim2.new(0, 27, 0, 27)
+    ImageLabel.Size = UDim2.new(0, 90, 0, 90)
 else
     mainButton.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
-    ImageLabel.Size = UDim2.new(0, 40, 0, 40)
+    ImageLabel.Size = UDim2.new(0, 95, 0, 95)
 end
 
 local tweenInfo = TweenInfo.new(0.25, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
@@ -708,7 +708,7 @@ function Library:CreateWindow(Setting)
 	TextLabelMain.TextWrapped = true
 	TextLabelMain.TextXAlignment = Enum.TextXAlignment.Left
 	TextLabelMain.TextColor3 = getgenv().UIColor["GUI Text Color"]
-   TextLabelMain.Text = "<font color=\"rgb(200, 180, 70)\">" .. tostring(TitleNameMain or "Banana Hub") .. "</font> <font color=\"rgb(255,255,255)\">" .. tostring(getgenv().MainDesc or "") .. "</font>"
+   TextLabelMain.Text = "<font color=\"rgb(220, 200, 80)\">" .. tostring(TitleNameMain or "Banana Hub") .. "</font> <font color=\"rgb(255,255,255)\">" .. tostring(getgenv().MainDesc or "") .. "</font>"
 	PageControl.Name = "Background1"
 	PageControl.Parent = Concacmain
 	PageControl.Position = UDim2.new(0, 5, 0, 0)
@@ -1711,7 +1711,7 @@ end)
 				ClickArea_1.Name = "ClickArea"
 				ClickArea_1.Parent = RowBG_1
 				ClickArea_1.AnchorPoint = Vector2.new(1, 0.5)
-				ClickArea_1.BackgroundColor3 = Color3.fromRGB(200, 180, 70)
+				ClickArea_1.BackgroundColor3 = Color3.fromRGB(220, 200, 80)
 				ClickArea_1.Position = UDim2.new(1, -8, 0.5, 0)
 				ClickArea_1.Size = UDim2.new(0, 94, 0, 30)
 				ClickArea_1.ClipsDescendants = true
