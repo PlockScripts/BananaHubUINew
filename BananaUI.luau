@@ -1,4 +1,4 @@
--- Source shared by araujozwx 
+
 
 if getgenv().Nousigi then 
 	if game.CoreGui:FindFirstChild("Banana Hub GUI") then
@@ -131,7 +131,6 @@ Library_Function.HideGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 Library_Function.HideGui.Name = 'Banana Hub'
 
 
-local Players = game:GetService("Players")
 local UIS = game:GetService("UserInputService")
 
 if game.CoreGui:FindFirstChild("NazuXWindowsToggleUltimate") then
@@ -144,41 +143,15 @@ ToggleScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 ToggleScreenGui.Name = "NazuXWindowsToggleUltimate"
 
 local mainButton = Instance.new("ImageButton")
-mainButton.Name = "ToggleButton"
 mainButton.Parent = ToggleScreenGui
-mainButton.Size = UDim2.new(0, 50, 0, 50)
-mainButton.Position = UDim2.new(0, 15, 1, -75)
-mainButton.AnchorPoint = Vector2.new(0, 1)
-mainButton.BackgroundColor3 = Color3.fromRGB(45,45,45)
-mainButton.BackgroundTransparency = 0.2
+mainButton.Size = UDim2.new(0,50,0,50)
+mainButton.Position = UDim2.new(0,15,1,-75)
+mainButton.AnchorPoint = Vector2.new(0,1)
+mainButton.BackgroundTransparency = 1
 mainButton.BorderSizePixel = 0
 mainButton.AutoButtonColor = false
-mainButton.Image = ""
+mainButton.Image = "rbxassetid://5009915795"
 mainButton.Active = true
-
-local UICorner = Instance.new("UICorner")
-UICorner.CornerRadius = UDim.new(1, 0)
-UICorner.Parent = mainButton
-
-local UIStroke = Instance.new("UIStroke")
-UIStroke.Parent = mainButton
-UIStroke.Color = Color3.fromRGB(255, 200, 80)
-UIStroke.Thickness = 1.5
-UIStroke.Transparency = 0.4
-
-local ImageLabel = Instance.new("ImageLabel")
-ImageLabel.Parent = mainButton
-ImageLabel.AnchorPoint = Vector2.new(0.5,0.5)
-ImageLabel.Position = UDim2.new(0.5,0,0.5,0)
-ImageLabel.Size = UDim2.new(0,45,0,45)
-ImageLabel.BackgroundTransparency = 1
-ImageLabel.BorderSizePixel = 0
-ImageLabel.ImageColor3 = Color3.fromRGB(255,255,255)
-ImageLabel.Image = "rbxassetid://5009915795"
-
-local Corner = Instance.new("UICorner")
-Corner.CornerRadius = UDim.new(1,0)
-Corner.Parent = ImageLabel
 
 local isToggled = false
 local dragging = false
@@ -226,8 +199,9 @@ end)
 
 mainButton.MouseButton1Click:Connect(function()
     isToggled = not isToggled
-    mainButton.BackgroundColor3 = isToggled and Color3.fromRGB(15,15,15) or Color3.fromRGB(45,45,45)
-    print(isToggled and "Toggle ON" or "Toggle OFF")
+    if Library and Library.ToggleUI then
+        Library.ToggleUI()
+    end
 end)
 
 Library.ToggleUI = function()
