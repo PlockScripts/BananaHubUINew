@@ -132,9 +132,7 @@ Library_Function.HideGui.Name = 'Banana Hub'
 
 
 local Players = game:GetService("Players")
-local TweenService = game:GetService("TweenService")
 local UIS = game:GetService("UserInputService")
-local player = Players.LocalPlayer
 
 if game.CoreGui:FindFirstChild("NazuXWindowsToggleUltimate") then
     game.CoreGui.NazuXWindowsToggleUltimate:Destroy()
@@ -173,8 +171,7 @@ ImageLabel.Parent = mainButton
 ImageLabel.AnchorPoint = Vector2.new(0.5,0.5)
 ImageLabel.Position = UDim2.new(0.5,0,0.5,0)
 ImageLabel.Size = UDim2.new(0,45,0,45)
-ImageLabel.BackgroundColor3 = Color3.fromRGB(255,255,255)
-ImageLabel.BackgroundTransparency = 0.2
+ImageLabel.BackgroundTransparency = 1
 ImageLabel.BorderSizePixel = 0
 ImageLabel.ImageColor3 = Color3.fromRGB(255,255,255)
 ImageLabel.Image = "rbxassetid://5009915795"
@@ -189,8 +186,6 @@ local dragInput
 local dragStart
 local startPos
 
-local tweenInfo = TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
-
 local function update(input)
     local delta = input.Position - dragStart
     mainButton.Position = UDim2.new(
@@ -202,7 +197,8 @@ local function update(input)
 end
 
 mainButton.InputBegan:Connect(function(input)
-    if input.UserInputType == Enum.UserInputType.MouseButton1 then
+    if input.UserInputType == Enum.UserInputType.MouseButton1
+    or input.UserInputType == Enum.UserInputType.Touch then
         dragging = true
         dragStart = input.Position
         startPos = mainButton.Position
@@ -216,7 +212,8 @@ mainButton.InputBegan:Connect(function(input)
 end)
 
 mainButton.InputChanged:Connect(function(input)
-    if input.UserInputType == Enum.UserInputType.MouseMovement then
+    if input.UserInputType == Enum.UserInputType.MouseMovement
+    or input.UserInputType == Enum.UserInputType.Touch then
         dragInput = input
     end
 end)
@@ -227,36 +224,9 @@ UIS.InputChanged:Connect(function(input)
     end
 end)
 
-mainButton.MouseEnter:Connect(function()
-    TweenService:Create(mainButton, tweenInfo, {
-        BackgroundTransparency = 0.1
-    }):Play()
-end)
-
-mainButton.MouseLeave:Connect(function()
-    TweenService:Create(mainButton, tweenInfo, {
-        BackgroundTransparency = 0.2
-    }):Play()
-end)
-
 mainButton.MouseButton1Click:Connect(function()
     isToggled = not isToggled
-
-    TweenService:Create(mainButton, tweenInfo, {
-        Size = UDim2.new(0,55,0,55),
-        BackgroundColor3 = isToggled and Color3.fromRGB(15,15,15) or Color3.fromRGB(45,45,45)
-    }):Play()
-
-    TweenService:Create(ImageLabel, tweenInfo, {
-        Size = isToggled and UDim2.new(0,40,0,40) or UDim2.new(0,45,0,45)
-    }):Play()
-
-    task.wait(0.15)
-
-    TweenService:Create(mainButton, tweenInfo, {
-        Size = UDim2.new(0,50,0,50)
-    }):Play()
-
+    mainButton.BackgroundColor3 = isToggled and Color3.fromRGB(15,15,15) or Color3.fromRGB(45,45,45)
     print(isToggled and "Toggle ON" or "Toggle OFF")
 end)
 
